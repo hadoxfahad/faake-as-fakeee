@@ -4,18 +4,16 @@
 cp index.html index_processed.html
 
 # Step 2: 'sed' command se har placeholder ko Render Environment Variable se replace karo
-# Hum yahaan double quotes aur curly braces use kar rahe hain taaki special characters (jaise :) theek se handle ho sakein.
+# Hum yahaan 's###...###g' syntax use kar rahe hain taaki URL mein maujood '/' se conflict na ho.
 
-# Note: '$' ke pehle backslash '\' hata diya gaya hai.
-
-sed -i "s|$$$$FIREBASE_API_KEY$$$$|${FIREBASE_API_KEY}|g" index_processed.html
-sed -i "s|$$$$FIREBASE_AUTH_DOMAIN$$$$|${FIREBASE_AUTH_DOMAIN}|g" index_processed.html
-sed -i "s|$$$$FIREBASE_DATABASE_URL$$$$|${FIREBASE_DATABASE_URL}|g" index_processed.html
-sed -i "s|$$$$FIREBASE_PROJECT_ID$$$$|${FIREBASE_PROJECT_ID}|g" index_processed.html
-sed -i "s|$$$$FIREBASE_STORAGE_BUCKET$$$$|${FIREBASE_STORAGE_BUCKET}|g" index_processed.html
-sed -i "s|$$$$FIREBASE_MESSAGING_SENDER_ID$$$$|${FIREBASE_MESSAGING_SENDER_ID}|g" index_processed.html
-sed -i "s|$$$$FIREBASE_APP_ID$$$$|${FIREBASE_APP_ID}|g" index_processed.html
-sed -i "s|$$$$FIREBASE_MEASUREMENT_ID$$$$|${FIREBASE_MEASUREMENT_ID}|g" index_processed.html
+sed -i "s###$$$$FIREBASE_API_KEY$$$$###${FIREBASE_API_KEY}###g" index_processed.html
+sed -i "s###$$$$FIREBASE_AUTH_DOMAIN$$$$###${FIREBASE_AUTH_DOMAIN}###g" index_processed.html
+sed -i "s###$$$$FIREBASE_DATABASE_URL$$$$###${FIREBASE_DATABASE_URL}###g" index_processed.html
+sed -i "s###$$$$FIREBASE_PROJECT_ID$$$$###${FIREBASE_PROJECT_ID}###g" index_processed.html
+sed -i "s###$$$$FIREBASE_STORAGE_BUCKET$$$$###${FIREBASE_STORAGE_BUCKET}###g" index_processed.html
+sed -i "s###$$$$FIREBASE_MESSAGING_SENDER_ID$$$$###${FIREBASE_MESSAGING_SENDER_ID}###g" index_processed.html
+sed -i "s###$$$$FIREBASE_APP_ID$$$$###${FIREBASE_APP_ID}###g" index_processed.html
+sed -i "s###$$$$FIREBASE_MEASUREMENT_ID$$$$###${FIREBASE_MEASUREMENT_ID}###g" index_processed.html
 
 # Step 3: Original file ko processed content se overwrite kardo
 mv index_processed.html index.html
