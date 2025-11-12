@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "serve . -p $PORT",
+    "build": "bash render-build.sh"
+  },
+  "dependencies": {
+    "serve": "14.2.3"
+  }
+}
